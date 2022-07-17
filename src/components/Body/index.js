@@ -1,12 +1,12 @@
 import GroupButton from "../GroupButton";
 import ListCart from "../ListCart";
-import Select from "../Select";
+import SelectFrameword from "../Select";
 
 const Body = () => {
   return (
     <section>
       <GroupButton />
-      <Select />
+      <SelectFrameword />
       <ListCart />
     </section>
   );
