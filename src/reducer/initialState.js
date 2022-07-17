@@ -1,6 +1,6 @@
 /*
   const news = {
-    story_id: number
+    story_id: string
     author: string,
     story_title: string,
     story_url: string,
@@ -9,7 +9,7 @@
     pages: number,
   };
   initialState = {
-    selectFrameword: "angular",
+    selectFrameword: "string",
     buttonActive: {
       all: boolean, 
       faves: boolean 
@@ -19,7 +19,7 @@
       react: [{news}] ,
       vue: [{news}]     
     }
-    faves: [id]
+    faves: [string]
   }
 */
 const frameword = {
