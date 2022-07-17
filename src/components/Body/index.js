@@ -8,8 +8,9 @@ import SelectFrameword from "../Select";
 
 const Body = () => {
   const { state, dispatch } = useContext(NewContext);
+  const OBJECT_FRAMEWORD = state.frameword[state.selectFrameword];
   const loading = useFetch(
-    { query: `${state.selectFrameword}`, page: 0 },
+    { query: `${state.selectFrameword}`, page: OBJECT_FRAMEWORD.page },
     dispatch
   );
   return loading ? (
@@ -17,8 +18,8 @@ const Body = () => {
   ) : (
     <section>
       <GroupButton />
-      <SelectFrameword dispatch={dispatch} library={state.selectFrameword}/>
-      <ListCart data={state.frameword[state.selectFrameword]}/>
+      <SelectFrameword dispatch={dispatch} library={state.selectFrameword} />
+      <ListCart data={OBJECT_FRAMEWORD} numItem={parseInt(OBJECT_FRAMEWORD.numItem)}/>
     </section>
   );
 };

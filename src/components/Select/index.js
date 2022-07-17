@@ -12,7 +12,7 @@ const frameword = [
 const SelectFrameword = ({dispatch, library}) => {
   const handleSelect = ({value}) => {
     dispatch({
-      type: TYPE.UPDATESELECT,
+      type: TYPE.UPDATE_SELECT,
       payload: value,
     })
   };

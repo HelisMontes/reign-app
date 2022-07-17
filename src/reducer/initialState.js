@@ -6,7 +6,6 @@
     story_url: string,
     created_at: string,
     faves: boolean,
-    pages: number,
   };
   initialState = {
     selectFrameword: "string",
@@ -15,17 +14,26 @@
       faves: boolean 
     },
     frameword {
-      angular: [{news}] ,
-      react: [{news}] ,
-      vue: [{news}]     
+      angular: {
+        page: number
+        news: [{news}]
+      },
+      react: {
+        page: number
+        news: [{news}]
+      },
+      vue: {
+        page: number
+        news: [{news}]
+      }     
     }
     faves: [string]
   }
 */
 const frameword = {
-  angular: [],
-  react: [],
-  vue: [],
+  angular: { page: 0, news: [], numItem: 8 },
+  react: { page: 0, news: [], numItem: 8 },
+  vue: { page: 0, news: [], numItem: 8 },
 };
 const faves = [];
 
