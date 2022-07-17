@@ -10,6 +10,9 @@ export const CartStyle = styled.article`
   border-radius: 6px;
   border: solid 1px #979797;
   background-color: #fff;
+    &:hover{
+      opacity: 0.4;
+    }
 `
 export const CartDescriptionStyle = styled.div`
   width: calc(100% - 68px);
