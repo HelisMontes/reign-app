@@ -4,14 +4,13 @@ import Button from "../Button";
 import { GroupButtonStyle } from "./style";
 
 const GroupButton = () => {
-  const [active, setActive] = useState({ all: true, faves: false });
   return (
     <GroupButtonStyle>
-      <Button styleButton="primary" active={active.all}>
-        <span class="All">All</span>
+      <Button styleButton="primary" active={true}>
+        <span className="All">All</span>
       </Button>
-      <Button styleButton="primary" active={active.faves}>
-        <span class="All">My faves</span>
+      <Button styleButton="primary" active={false}>
+        <span className="All">My faves</span>
       </Button>
     </GroupButtonStyle>
   );
