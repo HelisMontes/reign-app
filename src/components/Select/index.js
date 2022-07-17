@@ -1,4 +1,6 @@
 import Select from "react-select";
+import TYPE from "../../reducer/type";
+
 import SelectStyle from "./style";
 
 const frameword = [
@@ -7,12 +9,19 @@ const frameword = [
   { label: "Vue", value: "vue", image: "/images/vue.png" },
 ];
 
-const SelectFrameword = ({ onChange }) => {
+const SelectFrameword = ({dispatch, library}) => {
+  const handleSelect = ({value}) => {
+    console.log(value)
+    dispatch({
+      type: TYPE.UPDATESELECT,
+      payload: value,
+    })
+  };
   return (
     <SelectStyle>
       <Select
         options={frameword}
-        value={frameword.filter((option) => option.label === "Angular")}
+        value={frameword.filter((option) => option.value === library )}
         isSearchable={false}
         formatOptionLabel={(frameword) => (
           <div className="frameword-option">
@@ -25,6 +34,7 @@ const SelectFrameword = ({ onChange }) => {
             <span>{frameword.label}</span>
           </div>
         )}
+        onChange={handleSelect}
       />
     </SelectStyle>
   );

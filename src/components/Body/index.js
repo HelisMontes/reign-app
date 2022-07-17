@@ -17,7 +17,7 @@ const Body = () => {
   ) : (
     <section>
       <GroupButton />
-      <SelectFrameword />
+      <SelectFrameword dispatch={dispatch} library={state.selectFrameword}/>
       <ListCart data={state.frameword[state.selectFrameword]}/>
     </section>
   );
