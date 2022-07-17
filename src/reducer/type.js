@@ -1,0 +1,8 @@
+const type = {
+  GETNEWS: "GET-NEWS",
+  FAVESNEWS: "FAVES-NEWS",
+  UPDATESELECT: "UPDATE-SELECT",
+  ACTIVEBUTTON: "ACTIVE-BUTTON",
+};
+
+export default type;
