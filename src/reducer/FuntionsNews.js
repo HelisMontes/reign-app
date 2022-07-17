@@ -1,4 +1,11 @@
-export function getNews(state, payload) {}
+export function getNews(state, payload) {
+  const { frameword: library, news } = payload;
+  localStorage.setItem("frameword", JSON.stringify({...state.frameword, [library]: news }));
+  return {
+    ...state,
+    frameword: {...state.frameword, [library]: news },
+  };
+}
 
 export function myFavesNews(state, payload) {}
 

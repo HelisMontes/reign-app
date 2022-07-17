@@ -1,5 +1,6 @@
 /*
   const news = {
+    story_id: number
     author: string,
     story_title: string,
     story_url: string,
@@ -22,15 +23,9 @@
   }
 */
 const frameword = {
-  angular: {
-    news: [],
-  },
-  react: {
-    news: [],
-  },
-  vue: {
-    news: [],
-  },
+  angular: [],
+  react: [],
+  vue: [],
 };
 const faves = [];
 
@@ -40,8 +35,8 @@ const initialState = {
     all: true,
     faves: false,
   },
-  frameword: window.localStorage.getItem("frameword") || frameword,
-  faves: window.localStorage.getItem("frameword") || faves,
+  frameword: JSON.parse(localStorage.getItem("frameword")) || frameword,
+  faves: JSON.parse(localStorage.getItem("frameword")) || faves,
 };
 
 export default initialState;
