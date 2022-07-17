@@ -3,15 +3,15 @@ import Text from "../../Text";
 
 import { CartDescriptionStyle } from "../style";
 
-const Description = ({ autor, description }) => {
+const Description = ({ date, autor, description }) => {
   return (
     <CartDescriptionStyle>
       <Text type="author">
         <Clock />
-        <span>3 hours ago by author</span>
+        <span>{date} by {autor}</span>
       </Text>
       <Text type="description">
-        <span>Yes, React is taking over front-end development. The question is why.</span>
+        <span>{description}</span>
       </Text>
     </CartDescriptionStyle>
   );

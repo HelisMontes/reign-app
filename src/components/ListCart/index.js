@@ -5,11 +5,9 @@ import { ListCartStyle } from "./style";
 const ListCart = ({ data }) => {
   return (
     <ListCartStyle>
-      <Cart />
-      <Cart />
-      <Cart />
-      <Cart />
-      <Cart />
+      {data.map((item) => (
+        <Cart key={item.story_id} item={item} />
+      ))}
     </ListCartStyle>
   );
 };

@@ -6,7 +6,11 @@ import { CartStyle } from "./style";
 const Cart = ({ item }) => {
   return (
     <CartStyle>
-      <Description />
+      <Description
+        date = {item.created_at}
+        autor = {item.author}
+        description = {item.story_title}
+      />
       <ButtomFavorite />
     </CartStyle>
   );
