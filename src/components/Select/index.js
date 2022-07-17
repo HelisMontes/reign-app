@@ -12,10 +12,16 @@ const SelectFrameword = ({ onChange }) => {
     <SelectStyle>
       <Select
         options={frameword}
+        value={frameword.filter((option) => option.label === "Angular")}
         isSearchable={false}
         formatOptionLabel={(frameword) => (
           <div className="frameword-option">
-            <img src={frameword.image} alt={frameword.value} width="24px" height="24px"/>
+            <img
+              src={frameword.image}
+              alt={frameword.value}
+              width="24px"
+              height="24px"
+            />
             <span>{frameword.label}</span>
           </div>
         )}
