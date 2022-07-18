@@ -1,6 +1,6 @@
-import Cart from "../Card";
+import Cart from '../Card';
 
-import { ListCartStyle } from "./style";
+import { ListCartStyle } from './style';
 
 const ListCart = ({ data, numItem }) => {
   return (

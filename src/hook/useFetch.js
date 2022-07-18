@@ -21,6 +21,6 @@ export const useFetch = (params, dispatch) => {
         .catch(console.error)
         .finally(() => setLoading(false));
     }
-  }, [params.query, params.page]);
+  }, []);
   return loading;
 };

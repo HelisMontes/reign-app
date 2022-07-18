@@ -1,11 +1,22 @@
-import { activeButton, getNews, myFavesNews, updateSelect } from "./FuntionsNews";
+import {
+  activeButton,
+  addMoreNew,
+  getNews,
+  myFavesNews,
+  updateNumItemByFramework,
+  updatePageByFramework,
+  updateSelect,
+} from './funtionsNews';
 
 const newReducer = (state, action) => {
   const STATES_CONDITION = {
-    "GET-NEWS": getNews,
-    "FAVES-NEWS": myFavesNews,
-    "UPDATE-SELECT": updateSelect,
-    "ACTIVE-BUTTON": activeButton,
+    'GET-NEWS': getNews,
+    'ADD-MORE-NEWS': addMoreNew,
+    'FAVES-NEWS': myFavesNews,
+    'UPDATE-SELECT': updateSelect,
+    'ACTIVE-BUTTON': activeButton,
+    'UPDATE-NUM-ITEM': updateNumItemByFramework,
+    'UPDATE-PAGE': updatePageByFramework,
   };
   const STATE_DEFAULT = state;
   return STATES_CONDITION[action.type]

@@ -10,7 +10,7 @@ const Body = () => {
   const { state, dispatch } = useContext(NewContext);
   const OBJECT_FRAMEWORD = state.frameword[state.selectFrameword];
   const loading = useFetch(
-    { query: `${state.selectFrameword}`, page: OBJECT_FRAMEWORD.page },
+    { query: `${state.selectFrameword}`, page: 0 },
     dispatch
   );
   return loading ? (
