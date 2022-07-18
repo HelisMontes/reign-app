@@ -1,17 +1,19 @@
-import ButtomFavorite from "./ButtomFavorite";
-import Description from "./Description";
+import ButtomFavorite from './ButtomFavorite';
+import Description from './Description';
 
-import { CartStyle } from "./style";
+import { CartStyle } from './style';
 
 const Cart = ({ item }) => {
   return (
     <CartStyle>
-      <Description
-        date = {item.created_at}
-        autor = {item.author}
-        description = {item.story_title}
-      />
-      <ButtomFavorite />
+      <a target='_blank' href={item.story_url}>
+        <Description
+          date={item.created_at}
+          autor={item.author}
+          description={item.story_title}
+        />
+      </a>
+      <ButtomFavorite item={item} />
     </CartStyle>
   );
 };

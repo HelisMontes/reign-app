@@ -1,5 +1,4 @@
 export function getNews(state, payload) {
-  console.log('getNews')
   const { frameword: library, news } = payload;
   localStorage.setItem(
     'frameword',
@@ -16,6 +15,7 @@ export function getNews(state, payload) {
     },
   };
 }
+
 export function addMoreNew(state, payload) {
   const { library, news, numItem, page } = payload;
   localStorage.setItem(
@@ -26,7 +26,7 @@ export function addMoreNew(state, payload) {
         ...state.frameword[library],
         news: [...state.frameword[library].news, ...news],
         page,
-      }
+      },
     })
   );
 
@@ -39,11 +39,47 @@ export function addMoreNew(state, payload) {
         news: [...state.frameword[library].news, ...news],
         numItem,
         page,
-      }
+      },
     },
   };
 }
-export function myFavesNews(state, payload) {}
+export function myFavesNews(state, payload) {
+  const { library, item } = payload;
+  return {
+    ...state,
+    faves: [...state.faves, item],
+    frameword: {
+      ...state.frameword,
+      [library]: {
+        ...state.frameword[library],
+        news: state.frameword[library].news.map((element) =>
+          element.story_id === item.story_id
+            ? { ...element, faves: !element.faves }
+            : element
+        ),
+      },
+    },
+  };
+}
+
+export function deleteMyFaves(state, payload) {
+  const { library, item } = payload;
+  return {
+    ...state,
+    faves: state.faves.filter(element=> element.story_id !== item.story_id),
+    frameword: {
+      ...state.frameword,
+      [library]: {
+        ...state.frameword[library],
+        news: state.frameword[library].news.map((element) =>
+          element.story_id === item.story_id
+            ? { ...element, faves: !element.faves }
+            : element
+        ),
+      },
+    },
+  };
+}
 
 export function updatePageByFramework(state, payload) {
   const { library, page } = payload;
@@ -76,9 +112,14 @@ export function updateSelect(state, payload) {
       [payload]: {
         ...state.frameword[payload],
         numItem: 8,
-      }
+      },
     },
   };
 }
 
-export function activeButton(state, payload) {}
+export function activeButton(state, payload) {
+  return {
+    ...state,
+    buttonActive: payload,
+  };
+}

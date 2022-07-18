@@ -1,5 +1,5 @@
-import React from "react";
-import ButtonStyle from "./style";
+import React from 'react';
+import ButtonStyle from './style';
 
 const Button = ({ children, onClick, styleButton, active }) => {
   return (
@@ -13,4 +13,4 @@ const Button = ({ children, onClick, styleButton, active }) => {
   );
 };
 
-export default Button
+export default Button;
