@@ -44,7 +44,7 @@ const initialState = {
     faves: false,
   },
   frameword: JSON.parse(localStorage.getItem("frameword")) || frameword,
-  faves: JSON.parse(localStorage.getItem("frameword")) || faves,
+  faves: JSON.parse(localStorage.getItem("faves")) || faves,
 };
 
 export default initialState;

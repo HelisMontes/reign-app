@@ -13,9 +13,13 @@ export const CartStyle = styled.article`
     &:hover{
       opacity: 0.4;
     }
+    a{
+      text-decoration: none;
+      width: calc(100% - 68px);
+    }
 `
 export const CartDescriptionStyle = styled.div`
-  width: calc(100% - 68px);
+  width: 100%;
   padding: 27px 16px 23px 26px;
   border-radius: 6px 0 0 6px;
   max-width: 482px;

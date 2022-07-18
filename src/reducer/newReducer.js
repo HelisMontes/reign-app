@@ -1,6 +1,7 @@
 import {
   activeButton,
   addMoreNew,
+  deleteMyFaves,
   getNews,
   myFavesNews,
   updateNumItemByFramework,
@@ -13,10 +14,12 @@ const newReducer = (state, action) => {
     'GET-NEWS': getNews,
     'ADD-MORE-NEWS': addMoreNew,
     'FAVES-NEWS': myFavesNews,
+    'DELETE-FAVES': deleteMyFaves,
     'UPDATE-SELECT': updateSelect,
     'ACTIVE-BUTTON': activeButton,
     'UPDATE-NUM-ITEM': updateNumItemByFramework,
     'UPDATE-PAGE': updatePageByFramework,
+
   };
   const STATE_DEFAULT = state;
   return STATES_CONDITION[action.type]
