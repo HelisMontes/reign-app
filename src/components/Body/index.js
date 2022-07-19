@@ -21,7 +21,9 @@ const Body = () => {
   ) : (
     <section>
       <GroupButton state={state} dispatch={dispatch} />
-      <SelectFrameword dispatch={dispatch} library={state.selectFrameword} />
+      {state.buttonActive.all && (
+        <SelectFrameword dispatch={dispatch} library={state.selectFrameword} />
+      )}
       <ListCart
         data={OBJECT_FRAMEWORD}
         numItem={parseInt(OBJECT_FRAMEWORD.numItem)}
