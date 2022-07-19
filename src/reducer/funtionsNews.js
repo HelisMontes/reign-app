@@ -1,25 +1,36 @@
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * We update the status,  we make the first request to the endpoint of each framework and store it in localstorage
+ */
 export function getNews(state, payload) {
-  const { frameword: library, news } = payload;
-  const FRAMEWORD = {
-    ...state.frameword,
-    [library]: { ...state.frameword[library], news },
+  const { framework: library, news } = payload;
+  const framework = {
+    ...state.framework,
+    [library]: { ...state.framework[library], news },
   };
-  localStorage.setItem('frameword', JSON.stringify(FRAMEWORD));
+  localStorage.setItem('framework', JSON.stringify(framework));
   return {
     ...state,
-    frameword: FRAMEWORD,
+    framework: framework,
   };
 }
-
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * We update the status, add new news to each framework and update localstorage
+ */
 export function addMoreNew(state, payload) {
   const { library, news, numItem, page } = payload;
   localStorage.setItem(
-    'frameword',
+    'framework',
     JSON.stringify({
-      ...state.frameword,
+      ...state.framework,
       [library]: {
-        ...state.frameword[library],
-        news: [...state.frameword[library].news, ...news],
+        ...state.framework[library],
+        news: [...state.framework[library].news, ...news],
         page,
         numItem: 8
       },
@@ -28,27 +39,37 @@ export function addMoreNew(state, payload) {
 
   return {
     ...state,
-    frameword: {
-      ...state.frameword,
+    framework: {
+      ...state.framework,
       [library]: {
-        ...state.frameword[library],
-        news: [...state.frameword[library].news, ...news],
+        ...state.framework[library],
+        news: [...state.framework[library].news, ...news],
         numItem,
         page,
       },
     },
   };
 }
-
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * update if the news is favorite or not depending on the framework
+ */
 function updateFrameworkFaves(state, payload) {
   const { library, item } = payload;
-  return state.frameword[library].news.map((element) =>
+  return state.framework[library].news.map((element) =>
     element.story_id === item.story_id
       ? { ...element, faves: !element.faves }
       : element
   );
 }
-
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * We update the status, add a news as a favorite and update localstorage
+ */
 export function myFavesNews(state, payload) {
   const { library, item } = payload;
   const NEW_FAVES = {
@@ -56,22 +77,27 @@ export function myFavesNews(state, payload) {
     news: [...state.faves.news, {...item, faves: true}],
   };
   const UPDATE_NEWS = updateFrameworkFaves(state, payload);
-  const FRAMEWORD = {
-    ...state.frameword,
+  const framework = {
+    ...state.framework,
     [library]: {
-      ...state.frameword[library],
+      ...state.framework[library],
       news: UPDATE_NEWS,
     },
   };
   localStorage.setItem('faves', JSON.stringify(NEW_FAVES));
-  localStorage.setItem('frameword', JSON.stringify(FRAMEWORD));
+  localStorage.setItem('framework', JSON.stringify(framework));
   return {
     ...state,
     faves: NEW_FAVES,
-    frameword: FRAMEWORD,
+    framework: framework,
   };
 }
-
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * We update the status, delete a news as a favorite and update localstorage
+ */
 export function deleteMyFaves(state, payload) {
   const { library, item } = payload;
   const LENGTH_FAVE = state.faves.news.length
@@ -81,31 +107,20 @@ export function deleteMyFaves(state, payload) {
     news: state.faves.news.filter((element) => element.story_id !== item.story_id),
   };
 
-  const FRAMEWORD = {
-    ...state.frameword,
+  const framework = {
+    ...state.framework,
     [library]: {
-      ...state.frameword[library],
+      ...state.framework[library],
       news: UPDATE_NEWS,
     },
   };
   localStorage.setItem('faves', JSON.stringify(UPDATE_FAVES));
-  localStorage.setItem('frameword', JSON.stringify(FRAMEWORD));
+  localStorage.setItem('framework', JSON.stringify(framework));
   return {
     ...state,
     buttonActive: LENGTH_FAVE <= 1 ? { all: true, faves: false } : {...state.buttonActive},
     faves: UPDATE_FAVES,
-    frameword: FRAMEWORD,
-  };
-}
-
-export function updatePageByFramework(state, payload) {
-  const { library, page } = payload;
-  return {
-    ...state,
-    frameword: {
-      ...state.frameword,
-      [library]: { ...state.frameword[library], page },
-    },
+    framework: framework,
   };
 }
 
@@ -113,13 +128,18 @@ export function updateNumItemByFramework(state, payload) {
   const { library, numItem } = payload;
   return {
     ...state,
-    frameword: {
-      ...state.frameword,
-      [library]: { ...state.frameword[library], numItem },
+    framework: {
+      ...state.framework,
+      [library]: { ...state.framework[library], numItem },
     },
   };
 }
-
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * We update the status and update the maximum amount of item that we can render depending on the
+ */
 export function updateNumItemFaves(state, payload) {
   return {
     ...state,
@@ -129,21 +149,31 @@ export function updateNumItemFaves(state, payload) {
     },
   };
 }
-
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * We update the status and update the selected framework
+ */
 export function updateSelect(state, payload) {
   return {
     ...state,
-    selectFrameword: payload,
-    frameword: {
-      ...state.frameword,
+    selectframework: payload,
+    framework: {
+      ...state.framework,
       [payload]: {
-        ...state.frameword[payload],
+        ...state.framework[payload],
         numItem: 8,
       },
     },
   };
 }
-
+/**
+ *
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * We update the status and enable the section that we are going to render (all or favorites)
+ */
 export function activeButton(state, payload) {
   return {
     ...state,

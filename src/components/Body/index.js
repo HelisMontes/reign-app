@@ -6,17 +6,20 @@ import useValidateData from '../../hook/useValidateData';
 
 import GroupButton from '../GroupButton';
 import ListCart from '../ListCart';
-import SelectFrameword from '../Select';
-
+import Selectframework from '../Select';
+/**
+ * The body of the app where all the information will be loaded so that the client can interact
+ * @returns JSX.Element
+ */
 const Body = () => {
   const { state, dispatch } = useContext(NewContext);
   const { loadMoreNews, loadMoreFaves } = useValidateData();
   const BUTTON_ACTIVE = state.buttonActive.all;
-  const OBJECT_FRAMEWORD = BUTTON_ACTIVE
-    ? state.frameword[state.selectFrameword]
+  const OBJECT_FRAMEWORK = BUTTON_ACTIVE
+    ? state.framework[state.selectframework]
     : state.faves;
   const loading = useFetch(
-    { query: `${state.selectFrameword}`, page: 0 },
+    { query: `${state.selectframework}`, page: 0 },
     dispatch,
     state
   );
@@ -24,21 +27,21 @@ const Body = () => {
     <></>
   ) : (
     <InfiniteScroll
-      dataLength={OBJECT_FRAMEWORD.numItem}
+      dataLength={OBJECT_FRAMEWORK.numItem}
       next={() => (BUTTON_ACTIVE ? loadMoreNews() : loadMoreFaves())}
       hasMore={true}
     >
       <section>
         <GroupButton state={state} dispatch={dispatch} />
         {state.buttonActive.all && (
-          <SelectFrameword
+          <Selectframework
             dispatch={dispatch}
-            library={state.selectFrameword}
+            library={state.selectframework}
           />
         )}
         <ListCart
-          data={OBJECT_FRAMEWORD}
-          numItem={parseInt(OBJECT_FRAMEWORD.numItem)}
+          data={OBJECT_FRAMEWORK}
+          numItem={parseInt(OBJECT_FRAMEWORK.numItem)}
           state={state}
         />
       </section>

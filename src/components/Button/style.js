@@ -1,6 +1,12 @@
 
 import styled, { css } from "styled-components";
-
+/**
+ *
+ * @param {object} styleButton
+ * @param {boolean} active
+ * Depending on the type of button, the style is rendered
+ * @returns styledComponents
+ */
 const ButtonStyle = styled.button(({ styleButton, active }) => {
   const typeButton = {
     primary: buttonPrimary,

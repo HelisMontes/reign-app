@@ -8,7 +8,7 @@ const SelectStyle = styled.div`
     height: 32px;
     border-radius: 4px;
 
-    .frameword-option {
+    .framework-option {
       display: flex;
       align-items: center;
 
