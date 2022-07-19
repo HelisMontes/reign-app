@@ -15,7 +15,7 @@ const getMoreNews = (dispatch, state, numItem, page) => {
   clientAxios
     .get(`/search_by_date`, { params })
     .then(({ data }) => {
-      const news = filterNews(data, params.page);
+      const news = filterNews(data, params);
       dispatch({
         type: TYPE.ADD_MORE_NEWS,
         payload: {

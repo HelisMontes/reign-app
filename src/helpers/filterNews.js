@@ -3,11 +3,10 @@ import dayjs from 'dayjs';
 /**
  *
  * @param {array} data //Array with the news data that we are going to filter and format
- * @param {number} page//The number of pages viewed per framework
- * Generate the object with the news structure
+ * @param {number} params// The search parameters
  * @returns Array
  */
-const filterNews = (data, page) => {
+const filterNews = (data, params) => {
   const news = data.hits
     .filter(
       (element) =>
@@ -25,7 +24,8 @@ const filterNews = (data, page) => {
       story_url: element.story_url,
       created_at: dayjs(element.created_at).format('HH[ horas ]MMMM'),
       faves: false,
-      page,
+      page: params.page,
+      framework: params.query,
     }));
   return news;
 };
