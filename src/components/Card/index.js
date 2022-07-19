@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { NewContext } from '../../context/NewProvaider';
 import TYPE from '../../reducer/type';
 
-import ButtomFavorite from './ButtomFavorite';
+import ButtonFavorite from './ButtonFavorite';
 import Description from './Description';
 
 import { CartStyle } from './style';
@@ -24,7 +24,7 @@ const Cart = ({ item }) => {
           description={item.story_title}
         />
       </a>
-      <ButtomFavorite item={item} onClick={() => handleClick(item)}/>
+      <ButtonFavorite item={item} onClick={() => handleClick(item)}/>
     </CartStyle>
   );
 };

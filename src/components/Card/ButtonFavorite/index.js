@@ -4,10 +4,10 @@ import NotFavorite from '../../Icons/NotFavorite';
 
 import { CartButtonStyle } from '../style';
 
-const ButtomFavorite = ({ item, onClick }) => {
+const ButtonFavorite = ({ item, onClick }) => {
   return (
     <CartButtonStyle onClick={onClick}>
-      <Button styleButton='icon' >
+      <Button styleButton={{ type: 'icon' }}>
         {item.faves 
           ? <Favorite />
           : <NotFavorite />
@@ -17,4 +17,4 @@ const ButtomFavorite = ({ item, onClick }) => {
   );
 };
 
-export default ButtomFavorite;
+export default ButtonFavorite;

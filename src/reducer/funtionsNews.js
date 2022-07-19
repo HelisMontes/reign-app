@@ -74,6 +74,7 @@ export function myFavesNews(state, payload) {
 
 export function deleteMyFaves(state, payload) {
   const { library, item } = payload;
+  const LENGTH_FAVE = state.faves.news.length
   const UPDATE_NEWS = updateFrameworkFaves(state, payload);
   const UPDATE_FAVES = {
     ...state.faves,
@@ -91,6 +92,7 @@ export function deleteMyFaves(state, payload) {
   localStorage.setItem('frameword', JSON.stringify(FRAMEWORD));
   return {
     ...state,
+    buttonActive: LENGTH_FAVE <= 1 ? { all: true, faves: false } : {...state.buttonActive},
     faves: UPDATE_FAVES,
     frameword: FRAMEWORD,
   };

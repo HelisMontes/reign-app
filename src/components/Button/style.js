@@ -4,18 +4,19 @@ import styled, { css } from "styled-components";
 const ButtonStyle = styled.button(({ styleButton, active }) => {
   const typeButton = {
     primary: buttonPrimary,
-    icon: buttomIcon,
+    icon: buttonIcon,
   };
-  return typeButton[styleButton](active);
+  return typeButton[styleButton.type](active, styleButton.cursor);
 });
 
-function buttonPrimary(active) {
+function buttonPrimary(active, cursor = 1) {
   return css`
     min-width: 98px;
     height: 31px;
     padding: 3px 16px 0 17px;
     border-radius: 2px;
     border: solid 1px ${active ? '#1797ff' : '#d6d6d6'};
+    cursor: ${ cursor > 0 ? 'pointer' : 'not-allowed' };
     span {
       font-family: Roboto;
       font-size: 16px;
@@ -30,7 +31,7 @@ function buttonPrimary(active) {
   `;
 }
 
-function buttomIcon() {
+function buttonIcon() {
   return css`
     display: flex;
     justify-content: center;
