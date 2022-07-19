@@ -20,7 +20,7 @@ const useFetch = (params, dispatch, state) => {
       clientAxios
         .get(`/search_by_date`, { params })
         .then(({ data }) => {
-          const news = filterNews(data, params.page);
+          const news = filterNews(data, params);
           dispatch({
             type: TYPE.GET_NEWS,
             payload: { framework: params.query, news },
