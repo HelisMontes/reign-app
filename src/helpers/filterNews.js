@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 const filterNews = (data, page) => {
   const news = data.hits
     .filter(
@@ -14,11 +16,10 @@ const filterNews = (data, page) => {
       author: element.author,
       story_title: element.story_title,
       story_url: element.story_url,
-      created_at: element.created_at,
+      created_at: dayjs(element.created_at).format('H[ horas ]MMMM'),
       faves: false,
       page,
     }));
-
   return news;
 };
 export default filterNews;
