@@ -1,0 +1,15 @@
+/**
+ * Variables to call the function that will update the state
+ */
+const TYPE = {
+  GET_NEWS: 'GET-NEWS',
+  ADD_MORE_NEWS: 'ADD-MORE-NEWS',
+  FAVES_NEWS: 'FAVES-NEWS',
+  DELETE_FAVES: 'DELETE-FAVES',
+  UPDATE_SELECT: 'UPDATE-SELECT',
+  ACTIVE_BUTTON: 'ACTIVE-BUTTON',
+  UPDATE_NUM_ITEM: 'UPDATE-NUM-ITEM',
+  UPDATE_NUM_ITEM_FAVES: 'UPDATE-NUM-ITEM-FAVES',
+};
+
+export default TYPE;
