@@ -3,7 +3,7 @@ import filterNews from '../helpers/filterNews';
 import TYPE from '../reducer/type';
 import clientAxios from '../services/clientAxios';
 
-export const useFetch = (params, dispatch, state) => {
+const useFetch = (params, dispatch, state) => {
   const [loading, setLoading] = useState(false);
   const OBJECT_FRAMEWORD = state.frameword[state.selectFrameword];
   useEffect(() => {
@@ -24,3 +24,5 @@ export const useFetch = (params, dispatch, state) => {
   }, [params.query]);
   return loading;
 };
+
+export default useFetch

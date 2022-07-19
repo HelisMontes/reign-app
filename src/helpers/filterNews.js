@@ -7,8 +7,10 @@ const filterNews = (data, page) => {
         element?.story_url &&
         element?.created_at
     )
-    .map((element) => ({
-      story_id: `${element.objectID}-${element.story_id}`,
+    .map((element, index) => ({
+      story_id: `${element.author.toUpperCase()}-${element.objectID * (index + 1)}-${
+        element.story_id
+      }`,
       author: element.author,
       story_title: element.story_title,
       story_url: element.story_url,

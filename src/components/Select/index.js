@@ -1,5 +1,4 @@
 import Select from 'react-select';
-import useValidateData from '../../hook/useValidateData';
 import TYPE from '../../reducer/type';
 
 import SelectStyle from './style';
@@ -11,7 +10,6 @@ const frameword = [
 ];
 
 const SelectFrameword = ({ dispatch, library }) => {
-  const { loadMoreNews } = useValidateData();
   const handleSelect = ({ value }) => {
     dispatch({
       type: TYPE.UPDATE_SELECT,
@@ -37,7 +35,6 @@ const SelectFrameword = ({ dispatch, library }) => {
         )}
         onChange={handleSelect}
       />
-      <button onClick={() => loadMoreFaves()}>Lobo</button>
     </SelectStyle>
   );
 };

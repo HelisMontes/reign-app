@@ -21,6 +21,7 @@ export function addMoreNew(state, payload) {
         ...state.frameword[library],
         news: [...state.frameword[library].news, ...news],
         page,
+        numItem: 8
       },
     })
   );
