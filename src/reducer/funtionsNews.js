@@ -32,7 +32,7 @@ export function addMoreNew(state, payload) {
         ...state.framework[library],
         news: [...state.framework[library].news, ...news],
         page,
-        numItem: 8
+        numItem: 8,
       },
     })
   );
@@ -74,7 +74,7 @@ export function myFavesNews(state, payload) {
   const { library, item } = payload;
   const NEW_FAVES = {
     ...state.faves,
-    news: [...state.faves.news, {...item, faves: true}],
+    news: [...state.faves.news, { ...item, faves: true }],
   };
   const UPDATE_NEWS = updateFrameworkFaves(state, payload);
   const framework = {
@@ -100,17 +100,22 @@ export function myFavesNews(state, payload) {
  */
 export function deleteMyFaves(state, payload) {
   const { library, item } = payload;
-  const LENGTH_FAVE = state.faves.news.length
-  const UPDATE_NEWS = updateFrameworkFaves(state, payload);
+  const LENGTH_FAVE = state.faves.news.length;
+  const UPDATE_NEWS = updateFrameworkFaves(state, {
+    library: item.framework,
+    item,
+  });
   const UPDATE_FAVES = {
     ...state.faves,
-    news: state.faves.news.filter((element) => element.story_id !== item.story_id),
+    news: state.faves.news.filter(
+      (element) => element.story_id !== item.story_id
+    ),
   };
 
   const framework = {
     ...state.framework,
-    [library]: {
-      ...state.framework[library],
+    [item.framework]: {
+      ...state.framework[item.framework],
       news: UPDATE_NEWS,
     },
   };
@@ -118,7 +123,10 @@ export function deleteMyFaves(state, payload) {
   localStorage.setItem('framework', JSON.stringify(framework));
   return {
     ...state,
-    buttonActive: LENGTH_FAVE <= 1 ? { all: true, faves: false } : {...state.buttonActive},
+    buttonActive:
+      LENGTH_FAVE <= 1
+        ? { all: true, faves: false }
+        : { ...state.buttonActive },
     faves: UPDATE_FAVES,
     framework: framework,
   };
@@ -181,6 +189,6 @@ export function activeButton(state, payload) {
     faves: {
       ...state.faves,
       numItem: 8,
-    }
+    },
   };
 }
