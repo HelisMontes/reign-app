@@ -38,6 +38,7 @@ export function addMoreNew(state, payload) {
     },
   };
 }
+
 function updateFrameworkFaves(state, payload) {
   const { library, item } = payload;
   return state.frameword[library].news.map((element) =>
@@ -46,9 +47,13 @@ function updateFrameworkFaves(state, payload) {
       : element
   );
 }
+
 export function myFavesNews(state, payload) {
   const { library, item } = payload;
-  const NEW_FAVES = [...state.faves, item];
+  const NEW_FAVES = {
+    ...state.faves,
+    news: [...state.faves.news, {...item, faves: true}],
+  };
   const UPDATE_NEWS = updateFrameworkFaves(state, payload);
   const FRAMEWORD = {
     ...state.frameword,
@@ -69,7 +74,11 @@ export function myFavesNews(state, payload) {
 export function deleteMyFaves(state, payload) {
   const { library, item } = payload;
   const UPDATE_NEWS = updateFrameworkFaves(state, payload);
-  const UPDATE_FAVES = state.faves.filter((element) => element.story_id !== item.story_id);
+  const UPDATE_FAVES = {
+    ...state.faves,
+    news: state.faves.news.filter((element) => element.story_id !== item.story_id),
+  };
+
   const FRAMEWORD = {
     ...state.frameword,
     [library]: {
