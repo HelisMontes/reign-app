@@ -22,7 +22,7 @@ const Cart = ({ item }) => {
   }
   return (
     <CartStyle>
-      <a target='_blank' href={item.story_url}>
+      <a target='_blank' rel="noreferrer" href={item.story_url}>
         <Description
           date={item.created_at}
           autor={item.author}

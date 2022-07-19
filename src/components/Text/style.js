@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { bps } from '../../bps';
 /**
  * @param {string} type //Add style for the button that is active
  * depending on the type of text the style is rendered
