@@ -117,6 +117,16 @@ export function updateNumItemByFramework(state, payload) {
   };
 }
 
+export function updateNumItemFaves(state, payload) {
+  return {
+    ...state,
+    faves: {
+      ...state.faves,
+      numItem: payload,
+    },
+  };
+}
+
 export function updateSelect(state, payload) {
   return {
     ...state,
@@ -135,5 +145,9 @@ export function activeButton(state, payload) {
   return {
     ...state,
     buttonActive: payload,
+    faves: {
+      ...state.faves,
+      numItem: 8,
+    }
   };
 }

@@ -37,7 +37,7 @@ const SelectFrameword = ({ dispatch, library }) => {
         )}
         onChange={handleSelect}
       />
-      <button onClick={() => loadMoreNews()}>Lobo</button>
+      <button onClick={() => loadMoreFaves()}>Lobo</button>
     </SelectStyle>
   );
 };
