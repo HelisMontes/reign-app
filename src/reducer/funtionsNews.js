@@ -1,18 +1,13 @@
 export function getNews(state, payload) {
   const { frameword: library, news } = payload;
-  localStorage.setItem(
-    'frameword',
-    JSON.stringify({
-      ...state.frameword,
-      [library]: { ...state.frameword[library], news },
-    })
-  );
+  const FRAMEWORD = {
+    ...state.frameword,
+    [library]: { ...state.frameword[library], news },
+  };
+  localStorage.setItem('frameword', JSON.stringify(FRAMEWORD));
   return {
     ...state,
-    frameword: {
-      ...state.frameword,
-      [library]: { ...state.frameword[library], news },
-    },
+    frameword: FRAMEWORD,
   };
 }
 
@@ -43,41 +38,51 @@ export function addMoreNew(state, payload) {
     },
   };
 }
+function updateFrameworkFaves(state, payload) {
+  const { library, item } = payload;
+  return state.frameword[library].news.map((element) =>
+    element.story_id === item.story_id
+      ? { ...element, faves: !element.faves }
+      : element
+  );
+}
 export function myFavesNews(state, payload) {
   const { library, item } = payload;
+  const NEW_FAVES = [...state.faves, item];
+  const UPDATE_NEWS = updateFrameworkFaves(state, payload);
+  const FRAMEWORD = {
+    ...state.frameword,
+    [library]: {
+      ...state.frameword[library],
+      news: UPDATE_NEWS,
+    },
+  };
+  localStorage.setItem('faves', JSON.stringify(NEW_FAVES));
+  localStorage.setItem('frameword', JSON.stringify(FRAMEWORD));
   return {
     ...state,
-    faves: [...state.faves, item],
-    frameword: {
-      ...state.frameword,
-      [library]: {
-        ...state.frameword[library],
-        news: state.frameword[library].news.map((element) =>
-          element.story_id === item.story_id
-            ? { ...element, faves: !element.faves }
-            : element
-        ),
-      },
-    },
+    faves: NEW_FAVES,
+    frameword: FRAMEWORD,
   };
 }
 
 export function deleteMyFaves(state, payload) {
   const { library, item } = payload;
+  const UPDATE_NEWS = updateFrameworkFaves(state, payload);
+  const UPDATE_FAVES = state.faves.filter((element) => element.story_id !== item.story_id);
+  const FRAMEWORD = {
+    ...state.frameword,
+    [library]: {
+      ...state.frameword[library],
+      news: UPDATE_NEWS,
+    },
+  };
+  localStorage.setItem('faves', JSON.stringify(UPDATE_FAVES));
+  localStorage.setItem('frameword', JSON.stringify(FRAMEWORD));
   return {
     ...state,
-    faves: state.faves.filter(element=> element.story_id !== item.story_id),
-    frameword: {
-      ...state.frameword,
-      [library]: {
-        ...state.frameword[library],
-        news: state.frameword[library].news.map((element) =>
-          element.story_id === item.story_id
-            ? { ...element, faves: !element.faves }
-            : element
-        ),
-      },
-    },
+    faves: UPDATE_FAVES,
+    frameword: FRAMEWORD,
   };
 }
 
