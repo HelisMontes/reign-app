@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
+import { bps } from '../../bps';
 
 const TextStyle = styled.div(({ type }) => {
   const typeButton = {
@@ -13,7 +14,7 @@ function author() {
     display: flex;
     align-items: center;
     svg {
-      margin-right: 8px;
+      width:20px;
     }
     span {
       font-family: Roboto;
@@ -24,6 +25,7 @@ function author() {
       line-height: normal;
       letter-spacing: normal;
       color: #767676;
+      padding-left: 8px;
     }
   `;
 }
