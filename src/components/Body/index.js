@@ -8,7 +8,9 @@ import SelectFrameword from '../Select';
 
 const Body = () => {
   const { state, dispatch } = useContext(NewContext);
-  const OBJECT_FRAMEWORD = state.frameword[state.selectFrameword];
+  const OBJECT_FRAMEWORD = state.buttonActive.all
+    ? state.frameword[state.selectFrameword]
+    : state.faves;
   const loading = useFetch(
     { query: `${state.selectFrameword}`, page: 0 },
     dispatch,
