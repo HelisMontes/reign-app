@@ -8,12 +8,12 @@
     faves: boolean,
   };
   initialState = {
-    selectFrameword: "string",
+    selectframework: "string",
     buttonActive: {
       all: boolean, 
       faves: boolean 
     },
-    frameword {
+    framework {
       angular: {
         page: number
         news: [{news}]
@@ -36,20 +36,23 @@
     }    
   }
 */
-const frameword = {
+const framework = {
   angular: { page: 0, news: [], numItem: 8 },
   react: { page: 0, news: [], numItem: 8 },
   vue: { page: 0, news: [], numItem: 8 },
 };
 const faves = { news: [], numItem: 8 };
-
+/**
+ * Initial state of the global state of the app
+ * Validate if there is information stored in the localStorage to assign it to the initial state
+ */
 const initialState = {
-  selectFrameword: 'angular',
+  selectframework: 'angular',
   buttonActive: {
     all: true,
     faves: false,
   },
-  frameword: JSON.parse(localStorage.getItem('frameword')) || frameword,
+  framework: JSON.parse(localStorage.getItem('framework')) || framework,
   faves: JSON.parse(localStorage.getItem('faves')) || faves,
 };
 

@@ -3,13 +3,19 @@ import TYPE from '../../reducer/type';
 
 import SelectStyle from './style';
 
-const frameword = [
+const framework = [
   { label: 'Angular', value: 'angular', image: '/images/angular.png' },
   { label: 'React', value: 'react', image: '/images/react.png' },
   { label: 'Vue', value: 'vue', image: '/images/vue.png' },
 ];
-
-const SelectFrameword = ({ dispatch, library }) => {
+/**
+ *
+ * @param {function} dispatch //function to update status
+ * @param {string} library //selected framework
+ * change the value of the framework to filter the news
+ * @returns JSX.Element
+ */
+const Selectframework = ({ dispatch, library }) => {
   const handleSelect = ({ value }) => {
     dispatch({
       type: TYPE.UPDATE_SELECT,
@@ -19,18 +25,18 @@ const SelectFrameword = ({ dispatch, library }) => {
   return (
     <SelectStyle>
       <Select
-        options={frameword}
-        value={frameword.filter((option) => option.value === library)}
+        options={framework}
+        value={framework.filter((option) => option.value === library)}
         isSearchable={false}
-        formatOptionLabel={(frameword) => (
-          <div className='frameword-option'>
+        formatOptionLabel={(framework) => (
+          <div className='framework-option'>
             <img
-              src={frameword.image}
-              alt={frameword.value}
+              src={framework.image}
+              alt={framework.value}
               width='24px'
               height='24px'
             />
-            <span>{frameword.label}</span>
+            <span>{framework.label}</span>
           </div>
         )}
         onChange={handleSelect}
@@ -39,4 +45,4 @@ const SelectFrameword = ({ dispatch, library }) => {
   );
 };
 
-export default SelectFrameword;
+export default Selectframework;

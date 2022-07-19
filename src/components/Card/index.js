@@ -6,13 +6,18 @@ import ButtonFavorite from './ButtonFavorite';
 import Description from './Description';
 
 import { CartStyle } from './style';
-
+/**
+ *
+ * @param {object} item //Object with news information
+ * Component for news card
+ * @returns JSX.Element
+ */
 const Cart = ({ item }) => {
   const { state, dispatch } = useContext(NewContext);
   function handleClick(item) {
     dispatch({
       type: item.faves ? TYPE.DELETE_FAVES  : TYPE.FAVES_NEWS,
-      payload: { item, library: state.selectFrameword },
+      payload: { item, library: state.selectframework },
     });
   }
   return (

@@ -6,10 +6,15 @@ import {
   myFavesNews,
   updateNumItemByFramework,
   updateNumItemFaves,
-  updatePageByFramework,
   updateSelect,
 } from './funtionsNews';
-
+/**
+ * 
+ * @param {object} state //state of reducer
+ * @param {function} dispatch //function to update status
+ * The global state is updated depending on the action performed
+ * @returns objeto
+ */
 const newReducer = (state, action) => {
   const STATES_CONDITION = {
     'ACTIVE-BUTTON': activeButton,
@@ -19,7 +24,6 @@ const newReducer = (state, action) => {
     'GET-NEWS': getNews,
     'UPDATE-NUM-ITEM-FAVES': updateNumItemFaves,
     'UPDATE-NUM-ITEM': updateNumItemByFramework,
-    'UPDATE-PAGE': updatePageByFramework,
     'UPDATE-SELECT': updateSelect,
   };
   const STATE_DEFAULT = state;
