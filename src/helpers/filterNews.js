@@ -16,7 +16,7 @@ const filterNews = (data, page) => {
       author: element.author,
       story_title: element.story_title,
       story_url: element.story_url,
-      created_at: dayjs(element.created_at).format('H[ horas ]MMMM'),
+      created_at: dayjs(element.created_at).format('HH[ horas ]MMMM'),
       faves: false,
       page,
     }));
