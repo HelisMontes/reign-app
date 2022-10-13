@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NewContext } from '../../context/NewProvaider';
+import { NewContext } from '../../context/NewProvider';
 import TYPE from '../../reducer/type';
 
 import ButtonFavorite from './ButtonFavorite';

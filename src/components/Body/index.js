@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { NewContext } from '../../context/NewProvaider';
+import { NewContext } from '../../context/NewProvider';
 import useFetch from '../../hook/useFetch';
 import useValidateData from '../../hook/useValidateData';
 
