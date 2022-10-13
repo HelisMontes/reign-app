@@ -7,13 +7,13 @@ import {
   updateNumItemByFramework,
   updateNumItemFaves,
   updateSelect,
-} from './funtionsNews';
+} from './functionsNews';
 /**
  * 
  * @param {object} state //state of reducer
  * @param {function} dispatch //function to update status
  * The global state is updated depending on the action performed
- * @returns objeto
+ * @returns object
  */
 const newReducer = (state, action) => {
   const STATES_CONDITION = {

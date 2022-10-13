@@ -15,7 +15,7 @@ const framework = [
  * change the value of the framework to filter the news
  * @returns JSX.Element
  */
-const Selectframework = ({ dispatch, library }) => {
+const SelectFramework = ({ dispatch, library }) => {
   const handleSelect = ({ value }) => {
     dispatch({
       type: TYPE.UPDATE_SELECT,
@@ -45,4 +45,4 @@ const Selectframework = ({ dispatch, library }) => {
   );
 };
 
-export default Selectframework;
+export default SelectFramework;
