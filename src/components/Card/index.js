@@ -25,7 +25,7 @@ const Cart = ({ item }) => {
       <a target='_blank' rel="noreferrer" href={item.story_url}>
         <Description
           date={item.created_at}
-          autor={item.author}
+          author={item.author}
           description={item.story_title}
         />
       </a>

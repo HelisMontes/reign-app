@@ -6,7 +6,7 @@ import useValidateData from '../../hook/useValidateData';
 
 import GroupButton from '../GroupButton';
 import ListCart from '../ListCart';
-import Selectframework from '../Select';
+import SelectFramework from '../Select';
 /**
  * The body of the app where all the information will be loaded so that the client can interact
  * @returns JSX.Element
@@ -34,7 +34,7 @@ const Body = () => {
       <section>
         <GroupButton state={state} dispatch={dispatch} />
         {state.buttonActive.all && (
-          <Selectframework
+          <SelectFramework
             dispatch={dispatch}
             library={state.selectframework}
           />

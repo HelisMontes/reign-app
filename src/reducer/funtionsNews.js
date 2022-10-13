@@ -2,7 +2,7 @@
  *
  * @param {object} state //state of reducer
  * @param {function} dispatch //function to update status
- * We update the status,  we make the first request to the endpoint of each framework and store it in localstorage
+ * We update the status,  we make the first request to the endpoint of each framework and store it in localStorage
  */
 export function getNews(state, payload) {
   const { framework: library, news } = payload;
@@ -20,7 +20,7 @@ export function getNews(state, payload) {
  *
  * @param {object} state //state of reducer
  * @param {function} dispatch //function to update status
- * We update the status, add new news to each framework and update localstorage
+ * We update the status, add new news to each framework and update localStorage
  */
 export function addMoreNew(state, payload) {
   const { library, news, numItem, page } = payload;
@@ -68,7 +68,7 @@ function updateFrameworkFaves(state, payload) {
  *
  * @param {object} state //state of reducer
  * @param {function} dispatch //function to update status
- * We update the status, add a news as a favorite and update localstorage
+ * We update the status, add a news as a favorite and update localStorage
  */
 export function myFavesNews(state, payload) {
   const { library, item } = payload;
@@ -96,7 +96,7 @@ export function myFavesNews(state, payload) {
  *
  * @param {object} state //state of reducer
  * @param {function} dispatch //function to update status
- * We update the status, delete a news as a favorite and update localstorage
+ * We update the status, delete a news as a favorite and update localStorage
  */
 export function deleteMyFaves(state, payload) {
   const { library, item } = payload;
