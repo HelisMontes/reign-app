@@ -17,7 +17,7 @@ const Cart = ({ item }) => {
   function handleClick(item) {
     dispatch({
       type: item.faves ? TYPE.DELETE_FAVES  : TYPE.FAVES_NEWS,
-      payload: { item, library: state.selectframework },
+      payload: { item, library: state.selectFramework },
     });
   }
   return (

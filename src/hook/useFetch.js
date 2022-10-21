@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { NewContext } from '../context/NewProvider';
 import filterNews from '../helpers/filterNews';
 import TYPE from '../reducer/type';
 import clientAxios from '../services/clientAxios';
@@ -10,9 +11,10 @@ import clientAxios from '../services/clientAxios';
  * First request to the endpoint for each framework
  * @returns boolean
  */
-const useFetch = (params, dispatch, state) => {
+const useFetch = (params, state) => {
+  const { dispatch } = useContext(NewContext);
   const [loading, setLoading] = useState(false);
-  const OBJECT_FRAMEWORK = state.framework[state.selectframework];
+  const OBJECT_FRAMEWORK = state.framework[state.selectFramework];
   useEffect(() => {
     //If the framework has data it did not make the request
     if (OBJECT_FRAMEWORK.news.length === 0) {

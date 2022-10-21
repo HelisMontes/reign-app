@@ -47,7 +47,7 @@ const faves = { news: [], numItem: 8 };
  * Validate if there is information stored in the localStorage to assign it to the initial state
  */
 const initialState = {
-  selectframework: 'angular',
+  selectFramework: 'angular',
   buttonActive: {
     all: true,
     faves: false,

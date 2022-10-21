@@ -11,7 +11,7 @@ import TYPE from '../reducer/type';
  * request to the end point to obtain new data depending on the framework and pagination
  */
 const getMoreNews = (dispatch, state, numItem, page) => {
-  const params = { query: `${state.selectframework}`, page: `${page + 1}` };
+  const params = { query: `${state.selectFramework}`, page: `${page + 1}` };
   clientAxios
     .get(`/search_by_date`, { params })
     .then(({ data }) => {
