@@ -99,7 +99,7 @@ export function myFavesNews(state, payload) {
  * We update the status, delete a news as a favorite and update localStorage
  */
 export function deleteMyFaves(state, payload) {
-  const { library, item } = payload;
+  const { item } = payload;
   const LENGTH_FAVE = state.faves.news.length;
   const UPDATE_NEWS = updateFrameworkFaves(state, {
     library: item.framework,
@@ -166,7 +166,7 @@ export function updateNumItemFaves(state, payload) {
 export function updateSelect(state, payload) {
   return {
     ...state,
-    selectframework: payload,
+    selectFramework: payload,
     framework: {
       ...state.framework,
       [payload]: {

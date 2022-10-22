@@ -5,11 +5,11 @@ import { NewContext } from '../context/NewProvider';
 import TYPE from '../reducer/type';
 /**
  * Hook to load data with infinite scroll by framework or favorites
- * @returns objeto
+ * @returns object
  */
 const useValidateData = () => {
   const { state, dispatch } = useContext(NewContext);
-  const OBJECT_FRAMEWORK = state.framework[state.selectframework];
+  const OBJECT_FRAMEWORK = state.framework[state.selectFramework];
   const LENGTH_NEWS = OBJECT_FRAMEWORK.news.length;
   const NUM_ITEM = parseInt(OBJECT_FRAMEWORK.numItem);
   const LENGTH_NEWS_FAVES = OBJECT_FRAMEWORK.news.length;
@@ -37,7 +37,7 @@ const useValidateData = () => {
       dispatch({
         type: TYPE.UPDATE_NUM_ITEM,
         payload: {
-          library: state.selectframework,
+          library: state.selectFramework,
           numItem: NUM_ITEM + 8,
         },
       });

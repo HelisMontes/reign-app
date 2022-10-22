@@ -16,11 +16,10 @@ const Body = () => {
   const { loadMoreNews, loadMoreFaves } = useValidateData();
   const BUTTON_ACTIVE = state.buttonActive.all;
   const OBJECT_FRAMEWORK = BUTTON_ACTIVE
-    ? state.framework[state.selectframework]
+    ? state.framework[state.selectFramework]
     : state.faves;
   const loading = useFetch(
-    { query: `${state.selectframework}`, page: 0 },
-    dispatch,
+    { query: `${state.selectFramework}`, page: 0 },
     state
   );
   return loading ? (
@@ -36,7 +35,7 @@ const Body = () => {
         {state.buttonActive.all && (
           <SelectFramework
             dispatch={dispatch}
-            library={state.selectframework}
+            library={state.selectFramework}
           />
         )}
         <ListCart
