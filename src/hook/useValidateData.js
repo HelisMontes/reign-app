@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import getMoreNews from '../utils/getMoreNews';
-import { NewContext } from '../context/NewProvider';
+import { NewContext } from '../context/NewsProvider';
 
 import TYPE from '../reducer/type';
 /**
