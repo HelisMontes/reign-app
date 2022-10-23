@@ -8,7 +8,7 @@
     faves: boolean,
   };
   initialState = {
-    selectframework: "string",
+    selectFramework: "string",
     buttonActive: {
       all: boolean, 
       faves: boolean 
