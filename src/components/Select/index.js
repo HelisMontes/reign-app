@@ -1,5 +1,5 @@
 import Select from 'react-select';
-import TYPE from '../../reducer/type';
+import { UPDATE_SELECT } from '../../reducer/type';
 
 import SelectStyle from './style';
 
@@ -18,7 +18,7 @@ const framework = [
 const SelectFramework = ({ dispatch, library }) => {
   const handleSelect = ({ value }) => {
     dispatch({
-      type: TYPE.UPDATE_SELECT,
+      type: UPDATE_SELECT,
       payload: value,
     });
   };

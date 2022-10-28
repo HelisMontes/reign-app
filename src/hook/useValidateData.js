@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import getMoreNews from '../utils/getMoreNews';
 import { NewContext } from '../context/NewProvider';
 
-import TYPE from '../reducer/type';
+import { UPDATE_NUM_ITEM, UPDATE_NUM_ITEM_FAVES } from '../reducer/type';
 /**
  * Hook to load data with infinite scroll by framework or favorites
  * @returns object
@@ -35,7 +35,7 @@ const useValidateData = () => {
      */
     if (LENGTH_NEWS > NUM_ITEM) {
       dispatch({
-        type: TYPE.UPDATE_NUM_ITEM,
+        type: UPDATE_NUM_ITEM,
         payload: {
           library: state.selectFramework,
           numItem: NUM_ITEM + 8,
@@ -62,7 +62,7 @@ const useValidateData = () => {
      */
     if (LENGTH_NEWS_FAVES >= NUM_ITEM_FAVES) {
       dispatch({
-        type: TYPE.UPDATE_NUM_ITEM_FAVES,
+        type: UPDATE_NUM_ITEM_FAVES,
         payload: NUM_ITEM_FAVES + 8,
       });
     }
