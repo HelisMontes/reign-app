@@ -9,7 +9,7 @@ export const NewContext = createContext();
  * create the context and insert the reducer and call it from anywhere in the app
  * @returns JSX.Element
  */
-const NewProvider = ({ children }) => {
+const NewsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(newReducer, initialState);
   return (
     <NewContext.Provider value={{ state, dispatch }}>
@@ -18,4 +18,4 @@ const NewProvider = ({ children }) => {
   );
 };
 
-export default NewProvider;
+export default NewsProvider;
