@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { NewContext } from '../context/NewProvider';
+import { NewContext } from '../context/NewsProvider';
 import filterNews from '../helpers/filterNews';
 import TYPE from '../reducer/type';
 import clientAxios from '../services/clientAxios';
