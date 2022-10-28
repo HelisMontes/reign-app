@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { NewContext } from '../context/NewsProvider';
 import filterNews from '../helpers/filterNews';
-import TYPE from '../reducer/type';
+import { GET_NEWS } from '../reducer/type';
 import clientAxios from '../services/clientAxios';
 /**
  *
@@ -24,7 +24,7 @@ const useFetch = (params, state) => {
         .then(({ data }) => {
           const news = filterNews(data, params);
           dispatch({
-            type: TYPE.GET_NEWS,
+            type: GET_NEWS,
             payload: { framework: params.query, news },
           });
         })

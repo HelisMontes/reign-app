@@ -1,6 +1,6 @@
 import clientAxios from '../services/clientAxios';
 import filterNews from '../helpers/filterNews';
-import TYPE from '../reducer/type';
+import { ADD_MORE_NEWS } from '../reducer/type';
 
 /**
  *
@@ -17,7 +17,7 @@ const getMoreNews = (dispatch, state, numItem, page) => {
     .then(({ data }) => {
       const news = filterNews(data, params);
       dispatch({
-        type: TYPE.ADD_MORE_NEWS,
+        type: ADD_MORE_NEWS,
         payload: {
           library: params.query,
           news,

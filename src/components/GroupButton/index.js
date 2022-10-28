@@ -1,4 +1,4 @@
-import TYPE from '../../reducer/type';
+import {ACTIVE_BUTTON} from '../../reducer/type';
 import Button from '../Button';
 
 import { GroupButtonStyle } from './style';
@@ -13,7 +13,7 @@ const GroupButton = ({ state, dispatch }) => {
   const LENGTH_FAVE = state.faves.news.length;
   function showNewsFave(type) {
     dispatch({
-      type: TYPE.ACTIVE_BUTTON,
+      type: ACTIVE_BUTTON,
       payload: {
         all: type === 'all' ? true : false,
         faves: type === 'faves' ? true : false,
